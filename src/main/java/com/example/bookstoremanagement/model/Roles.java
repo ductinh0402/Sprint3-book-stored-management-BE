@@ -1,10 +1,15 @@
 package com.example.bookstoremanagement.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Set;
-
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 public class Roles {
     @Id
@@ -15,36 +20,4 @@ public class Roles {
     @JsonBackReference
     private Set<Account> accountSet;
 
-    public Roles() {
-    }
-
-    public Roles(String name, Set<Account> accountSet) {
-        this.name = name;
-        this.accountSet = accountSet;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String role) {
-        this.name = role;
-    }
-
-    public Set<Account> getAccountSet() {
-        return accountSet;
-    }
-
-    public void setAccountSet(Set<Account> accountSet) {
-        this.accountSet = accountSet;
-    }
 }
